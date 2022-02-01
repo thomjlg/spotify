@@ -41,14 +41,15 @@
 			</td>
           </tr>
         </table>
+        <?php echo db_select_sqli($titre, $artiste, $album, $url, $date);?>
       </form>
     </div>
   </div>
 
   <div class="metabox-holder">
     <div class="postbox">
-      <h3><strong>Suppression d'un enregistrement :</strong></h3>
-      <form method="post" action="">
+      <h3><strong>Suppression d'un enregistrement : <span style='color:red'>(attention, cette action est irrévocable)</span></strong></h3>
+      <form method="post" action="db-delete.php">
         <table class="form-table">
           <tr>
             <th scope="row">Element à supprimer de la base :</th>
@@ -58,7 +59,7 @@
           <tr>
             <th scope="row">&nbsp;</th>
             <td style="padding-top:10px;  padding-bottom:10px;">
-				<input type="submit" name="wp_submit" value="Sauver" class="button-primary" />
+				<input type="submit" name="wp_submit" value="Supprimer les éléments contenants '<?php echo get_option('af_p4_footer_text');?>'" class="button-primary" />
 			</td>
           </tr>
         </table>
@@ -68,13 +69,13 @@
 
   <div class="metabox-holder">
     <div class="postbox">
-      <h3><strong>Suppression de tous les enregistrements :</strong></h3>
+      <h3><strong>Suppression de tous les enregistrements : <span style='color:red'>(attention, cette action est irrévocable)</span></strong></h3>
       <form method="post" action="db-delete-all-rows.php">
         <table class="form-table">
           <tr>
             <th scope="row">&nbsp;</th>
             <td style="padding-top:10px;  padding-bottom:10px;">
-				<input type="submit" name="wp_submit" value="Supprimer tous les élements" class="button-primary" />
+				<input type="submit" name="wp_submit" value="Supprimer tous les élements" class="button-primary"  />
 			</td>
           </tr>
         </table>
