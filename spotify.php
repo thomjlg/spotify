@@ -14,3 +14,4 @@ require_once  plugin_dir_path(__FILE__) . 'includes/db-connect.php';
 require_once  plugin_dir_path(__FILE__) . 'includes/db-create.php';
 require_once  plugin_dir_path(__FILE__) . 'includes/db-delete.php';
 require_once  plugin_dir_path(__FILE__) . 'includes/db-update.php';
+require_once  plugin_dir_path(__FILE__) . 'includes/admin-page.php';
