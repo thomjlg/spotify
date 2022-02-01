@@ -17,17 +17,17 @@ $count = $conn->querySingle("SELECT COUNT(*) as count FROM tablename WHERE condi
 
 if($count == 0){
     //requeter sur la base spotify (API)
-    //  requete_spotify();
+    db_select_spotify();
     
     //puis ajouter les data dans la base sqlite
     db_create($titre, $artiste, $album, $url, $date);
 
     //enfin, afficher les donneés dans le short-code
-    db_select_spotify();
+    db_select_sqli($titre, $artiste, $album, $url, $date);
 
 }else{
     //données présentes dans la base sqlite donc les afficher
-    db_select_sqli();
+    db_select_sqli($titre, $artiste, $album, $url, $date);
 }
 
 $req1 = null;
