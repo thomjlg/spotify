@@ -1,7 +1,6 @@
 
 <?php
 require_once 'db-config.php';
-include('db-create.php');
 
 function db_select_sqli(){
     try {
