@@ -28,7 +28,7 @@ function db_select_sqli(){
     
     $conn = null;
 
-    return $q->fetchAll();
+    return print_r($q->fetchAll());
     
 }
 
