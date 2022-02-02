@@ -2,6 +2,8 @@
 require_once 'db-config.php';
 include('db-create.php');
 include('db-select.php');
+require_once plugin_dir_path(__FILE__) . 'includes/sc-base-sqli.php';
+
 
 try {
     $conn = new PDO('sqlite:' .__DIR__.'/'.$dbname);
