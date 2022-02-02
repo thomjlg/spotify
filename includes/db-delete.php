@@ -10,7 +10,8 @@ catch (PDOException $pe) {
 
 $artist = $_GET['artist'];
 $delete_clause = "
-        DELETE FROM table WHERE artist like $artist;
+        DELETE FROM table 
+        WHERE artist like $artist;
         ";
 
 $conn->exec($delete_clause);
