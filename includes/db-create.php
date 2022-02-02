@@ -6,11 +6,8 @@ function db_create($titre, $artiste, $album, $url, $date){
 
     try {
         $conn = new PDO('sqlite:' .__DIR__.'/'.$dbname);
-        echo "<br>Connexion OK sur " .__DIR__."/$dbname.";
     }
     catch (PDOException $pe) {
-        echo '<br>Arrêt du script.';
-        //Fonction DIE() identique à EXIT()
         die("<br>Erreur de connexion sur $dbname :" . $pe->getMessage());
     }
     
