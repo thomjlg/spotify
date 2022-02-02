@@ -1,9 +1,15 @@
 <?php
 // function that runs when shortcode is called
-function sqli_base() {
+function sqli_base($param) {
 
+    if($param == 0){
+        $message = 'SQLITE';
+    }
+    else{
+        $message = 'Spotify';
+    }
 // Things that you want to do.
-$message = 'SQLITE';
+
 
 // Output needs to be return
 return $message;

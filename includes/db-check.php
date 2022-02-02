@@ -2,12 +2,10 @@
 require_once 'db-config.php';
 include('db-create.php');
 include('db-select.php');
-require_once plugin_dir_path(__FILE__) . 'includes/sc-base-sqli.php';
 
 
 try {
     $conn = new PDO('sqlite:' .__DIR__.'/'.$dbname);
-    add_shortcode('data-base', .__DIR__."/$dbname.");
 }
 
 /*Si erreur ou exception, interception du message*/
@@ -20,7 +18,7 @@ $count = $conn->querySingle("SELECT COUNT(*) as count FROM tablename WHERE condi
 if($count == 0){
     //requeter sur la base spotify (API)
     db_select_spotify();
-    
+    sqli_base(1);
     //puis ajouter les data dans la base sqlite
     db_create($titre, $artiste, $album, $url, $date);
 
@@ -29,6 +27,7 @@ if($count == 0){
 
 }else{
     //données présentes dans la base sqlite donc les afficher
+    sqli_base(0);
     db_select_sqli($titre, $artiste, $album, $url, $date);
 }
 
