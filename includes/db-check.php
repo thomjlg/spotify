@@ -1,7 +1,7 @@
 <?php
 require_once 'db-config.php';
-include('db-create.php');
-include('db-select.php');
+require_once 'db-create.php';
+require_once 'db-select.php';
 
 
 try {
