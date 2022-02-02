@@ -18,15 +18,21 @@ function db_select_sqli(){
             ";    
    
     
-    $req1 = null;
+
+    $q = $conn->query($req1);
+    //echo $q? 'True' : 'False'; //Spécifique PHP7
+    $q->setFetchMode(PDO::FETCH_ASSOC);
+
+    //fetchAll — Retourne un tableau contenant toutes les lignes du jeu d'enregistrements et vide la requête.
+    print_r($q->fetchAll());
+    
     $conn = null;
 
-    return $conn->exec($req1);
+    return $q->fetchAll();
     
 }
 
-// add_shortcode('result-query', 'db_select_sqli');
-// add_shortcode('data-base', .__DIR__."/$dbname.");
+add_shortcode('result-query', 'db_select_sqli');
 
 ?>
 
