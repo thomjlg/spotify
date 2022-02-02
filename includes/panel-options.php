@@ -1,4 +1,6 @@
 <?php
+include('db-select.php');
+
     global $chk;
     if(isset($_POST['wp_submit'])){
             af_p4_wphw_opt();
@@ -27,7 +29,7 @@
   <div class="metabox-holder">
     <div class="postbox">
       <h3><strong>Recherche :</strong></h3>
-      <form method="post" action="">
+      <form method="post" action="db-select.php?artist=<?php echo get_option('af_p4_footer_text');?>">
         <table class="form-table">
           <tr>
             <th scope="row">Element à rechercher dans la base :</th>
@@ -41,7 +43,6 @@
 			</td>
           </tr>
         </table>
-        <?php echo db_select_sqli($titre, $artiste, $album, $url, $date);?>
       </form>
     </div>
   </div>
@@ -49,7 +50,7 @@
   <div class="metabox-holder">
     <div class="postbox">
       <h3><strong>Suppression d'un enregistrement : <span style='color:red'>(attention, cette action est irrévocable)</span></strong></h3>
-      <form method="post" action="db-delete.php">
+      <form method="post" action="db-delete.php?artist=<?php echo get_option('af_p4_footer_text');?>">
         <table class="form-table">
           <tr>
             <th scope="row">Element à supprimer de la base :</th>
