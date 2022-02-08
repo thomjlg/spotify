@@ -2,7 +2,7 @@
 require_once 'db-select.php';
 // $result = db_select_sqli();
 
-add_action("the_content", "tl_p1_Add_Text");
+add_action("w", "tl_p1_Add_Text");
 
 // Define 'af_p1_Add_Text'
 function tl_p1_Add_Text()
