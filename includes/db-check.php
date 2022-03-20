@@ -5,7 +5,7 @@ require_once 'db-select.php';
 
 
 try {
-    $conn = new PDO('sqlite:' .__DIR__.'/'.$dbname);
+    $conn = new PDO('sqlite:' .dirname(__FILE__).'/'.$dbname);
 }
 
 /*Si erreur ou exception, interception du message*/

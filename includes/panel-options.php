@@ -1,5 +1,5 @@
 <?php
-include('db-select.php');
+require_once('db-select.php');
 
     global $chk;
     if(isset($_POST['wp_submit'])){
@@ -39,7 +39,7 @@ include('db-select.php');
           <tr>
             <th scope="row">&nbsp;</th>
             <td style="padding-top:10px;  padding-bottom:10px;">
-				<input type="submit" name="wp_submit" value="Sauver" class="button-primary" />
+				<input type="submit" name="wp_submit" value="Rechercher" class="button-primary" />
 			</td>
           </tr>
         </table>
@@ -60,7 +60,7 @@ include('db-select.php');
           <tr>
             <th scope="row">&nbsp;</th>
             <td style="padding-top:10px;  padding-bottom:10px;">
-				<input type="submit" name="wp_submit" value="Supprimer les éléments contenants '<?php echo get_option('af_p4_footer_text');?>'" class="button-primary" />
+				<input type="submit" name="wp_submit" value="Supprimer les éléments concernés" class="button-primary" />
 			</td>
           </tr>
         </table>

@@ -1,24 +1,24 @@
-
 <?php
-require_once 'db-config.php';
 
 function db_select_sqli(){
+    require_once 'db-config.php';
 
     $artist = $_GET['artist'];
     try {
         $conn = new PDO('sqlite:' .__DIR__.'/'.$dbname);
+        echo '<br>Debut du script.';
     }
+    
     catch (PDOException $pe) {
         die("<br>Erreur de connexion sur $dbname :" . $pe->getMessage());
+        echo '<br>Arrêt du script.';
     }
     
     $req1 = "
-            SELECT * FROM db.name 
+            SELECT * FROM tasks1 
             where artist like $artist;
             ";    
    
-    
-
     $q = $conn->query($req1);
     //echo $q? 'True' : 'False'; //Spécifique PHP7
     $q->setFetchMode(PDO::FETCH_ASSOC);

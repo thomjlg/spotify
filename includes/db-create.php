@@ -6,9 +6,12 @@ function db_create($titre, $artiste, $album, $url, $id){
 
     try {
         $conn = new PDO('sqlite:' .__DIR__.'/'.$dbname);
+        echo '<br>Debut du script.';
     }
+    
     catch (PDOException $pe) {
         die("<br>Erreur de connexion sur $dbname :" . $pe->getMessage());
+        echo '<br>Arrêt du script.';
     }
     
     $create_req = "
@@ -37,5 +40,9 @@ function db_create($titre, $artiste, $album, $url, $id){
     $insert_req = null;
     $conn = null;
 }
+
+
+db_create('TITRE', 'MUSIQUE', 'ARTISTE', 'ALBUM', 'url', 1)
+
 
 ?>
