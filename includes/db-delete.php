@@ -18,4 +18,8 @@ $conn->exec($delete_clause);
 $delete_clause = null;
 $conn = null;
 
+echo "<br>Les données ont été supprimées de la base.";
+
+echo "<br /><br /><button onclick='history.back()'>Retour à la page d'administration</button>";
+
 ?>

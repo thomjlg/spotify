@@ -29,7 +29,7 @@ require_once('db-select.php');
   <div class="metabox-holder">
     <div class="postbox">
       <h3><strong>Recherche :</strong></h3>
-      <form method="post" action="db-select.php?artist=<?php echo get_option('af_p4_footer_text');?>">
+      <form method="post" action="/wp-content/plugins/spotify/includes/db-select.php?artist=<?php echo get_option('af_p4_footer_text');?>">
         <table class="form-table">
           <tr>
             <th scope="row">Element à rechercher dans la base :</th>
@@ -50,7 +50,7 @@ require_once('db-select.php');
   <div class="metabox-holder">
     <div class="postbox">
       <h3><strong>Suppression d'un enregistrement : <span style='color:red'>(attention, cette action est irrévocable)</span></strong></h3>
-      <form method="post" action="db-delete.php?artist=<?php echo get_option('af_p4_footer_text');?>">
+      <form method="post" action="/wp-content/plugins/spotify/includes/db-delete.php?artist=<?php echo get_option('af_p4_footer_text');?>">
         <table class="form-table">
           <tr>
             <th scope="row">Element à supprimer de la base :</th>
@@ -71,7 +71,7 @@ require_once('db-select.php');
   <div class="metabox-holder">
     <div class="postbox">
       <h3><strong>Suppression de tous les enregistrements : <span style='color:red'>(attention, cette action est irrévocable)</span></strong></h3>
-      <form method="post" action="db-delete-all-rows.php">
+      <form method="post" action="/wp-content/plugins/spotify/includes/db-delete-all-rows.php">
         <table class="form-table">
           <tr>
             <th scope="row">&nbsp;</th>
