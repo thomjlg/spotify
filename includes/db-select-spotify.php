@@ -36,7 +36,7 @@ function db_select_spotify($search, $type){
     $json2 = json_decode($json2);
     curl_close($ch2);
   
-    echo '<pre>'.print_r($json2, true).'</pre>';
+    //echo '<pre>'.print_r($json2, true).'</pre>';
   
     
     //Name : $json2->{'albums'}->{'items'}[0]->{'artists'}[0]->{'name'}
@@ -68,7 +68,7 @@ function db_select_spotify($search, $type){
     $mus_name = $json3->{'tracks'}->{'items'}[0]->{'name'};
     $id = $json2->{'albums'}->{'items'}[0]->{'id'};
   
-    return $art_name, $url, $alb_name, $mus_name, $id;
+    return array($art_name, $url, $alb_name, $mus_name, $id);
   }
   elseif ($type == 'track') {
     $track = $search;
@@ -99,9 +99,9 @@ function db_select_spotify($search, $type){
     $mus_name = $json2->{'tracks'}->{'items'}[0]->{'name'};
     $id = $json2->{'tracks'}->{'items'}[0]->{'album'}->{'id'};
   
-    return $art_name, $url, $alb_name, $mus_name, $id;
+    return array($art_name, $url, $alb_name, $mus_name, $id);
   }
-  elseif ($type == 'artist') {
+  elseif ($type == 'artiste') {
     $artist = $search;
 
     $spotifyURL = 'https://api.spotify.com/v1/search?q='.urlencode($artist).'&type=artist';
@@ -138,10 +138,10 @@ function db_select_spotify($search, $type){
 
     //echo '<pre>'.print_r($json3, true).'</pre>';
 
-    echo '<pre>'.print_r($json2->{'artists'}->{'items'}[0]->{'name'}).'</pre>';
-    echo '<pre>'.print_r($json2->{'artists'}->{'items'}[0]->{'external_urls'}->{'spotify'}).'</pre>';
-    echo '<pre>'.print_r($json3->{'tracks'}[0]->{'name'}).'</pre>';
-    echo '<pre>'.print_r($json3->{'tracks'}[0]->{'album'}->{'name'}).'</pre>';
+    //echo '<pre>'.print_r($json2->{'artists'}->{'items'}[0]->{'name'}).'</pre>';
+    //echo '<pre>'.print_r($json2->{'artists'}->{'items'}[0]->{'external_urls'}->{'spotify'}).'</pre>';
+    //echo '<pre>'.print_r($json3->{'tracks'}[0]->{'name'}).'</pre>';
+    //echo '<pre>'.print_r($json3->{'tracks'}[0]->{'album'}->{'name'}).'</pre>';
 
     $art_name = $json2->{'artists'}->{'items'}[0]->{'name'};
     $url = $json2->{'artists'}->{'items'}[0]->{'external_urls'}->{'spotify'};
@@ -149,7 +149,7 @@ function db_select_spotify($search, $type){
     $mus_name = $json3->{'tracks'}[0]->{'name'};
     $id = $json3->{'tracks'}[0]->{'album'}->{'id'};
 
-    return $art_name, $url, $alb_name, $mus_name, $id;    
+    return array($art_name, $url, $alb_name, $mus_name, $id);    
   }
 
 }

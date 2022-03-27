@@ -1,6 +1,6 @@
 <?php
-    $dbname = 'spotify.db';
-    /*$host = 'localhost'; // Ou Adresse IP du server 11.22.33.44. Inutile de préciser le port 3306 si non changé.
+    $dbname = 'spotify.sqlite';
+    /*$host = 'localhost:8888'; // Ou Adresse IP du server 11.22.33.44. Inutile de préciser le port 3306 si non changé.
     $username = 'wordpress';
     $password = 'wordpress';
 */

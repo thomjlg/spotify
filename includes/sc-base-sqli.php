@@ -1,12 +1,12 @@
 <?php
 // function that runs when shortcode is called
-function sqli_base($param) {
-
+function sqli_base() {
+    $param = isset($_GET['param']) ? $_GET['param'] : "";
     if($param == 0){
-        $message = 'SQLITE';
+        $message = 'Résultat obtenu dans la base SQLITE';
     }
     else{
-        $message = 'Spotify';
+        $message = 'Résultats récupéré depuis Spotify';
     }
 // Things that you want to do.
 
@@ -14,5 +14,5 @@ function sqli_base($param) {
 // Output needs to be return
 return $message;
 }
-// register shortcode [texte]
+// register shortcode
 add_shortcode('data-base', 'sqli_base');

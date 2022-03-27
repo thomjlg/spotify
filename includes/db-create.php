@@ -1,12 +1,13 @@
 <?php
 /*Inclusion d'un fichier de configuration pour centraliser les informations de connexion*/
 
-function db_create($titre, $artiste, $album, $url, $id){
-    require_once 'db-config.php';
+function db_create($art_name, $url, $alb_name, $mus_name, $id){
+    include 'db-config.php';
 
     try {
-        $conn = new PDO('sqlite:' .__DIR__.'/'.$dbname);
-        echo '<br>Debut du script.';
+        $conn = new PDO('sqlite:' .__DIR__."/".$dbname);
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        echo __DIR__."/".$dbname;
     }
     
     catch (PDOException $pe) {
@@ -28,10 +29,12 @@ function db_create($titre, $artiste, $album, $url, $id){
     ;
 
     $insert_req = '
-            INSERT INTO tablename (titre, artiste, album, url, id, date_ajout)'
-            .'VALUES ("'.$titre.'", "'.$artiste.'", "'.$album.'", "'.$url.'", "'.$id.'", NOW());'
+            INSERT INTO tasks1 (titre, artiste, album, url, id, date_ajout)'
+            .'VALUES ("'.$mus_name.'", "'.$art_name.'", "'.$alb_name.'", "'.$url.'", "'.$id.'", date(\'now\'));'
     ;
-
+    echo "<br>";
+    echo $insert_req;
+    echo "<br>";
     $conn->exec($create_req);
     $conn->exec($insert_req);
     
@@ -42,7 +45,7 @@ function db_create($titre, $artiste, $album, $url, $id){
 }
 
 
-db_create('TITRE', 'MUSIQUE', 'ARTISTE', 'ALBUM', 'url', 1)
+//db_create('TITRE', 'MUSIQUE', 'ARTISTE', 'ALBUM', 'url', 1)
 
 
 ?>

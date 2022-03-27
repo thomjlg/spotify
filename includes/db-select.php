@@ -1,9 +1,8 @@
 <?php
 
-function db_select_sqli(){
+function db_select_sqli($titre, $artiste, $album, $url, $date){
     require_once 'db-config.php';
 
-    $artist = $_GET['artist'];
     try {
         $conn = new PDO('sqlite:' .__DIR__.'/'.$dbname);
         echo '<br>Debut du script.';
@@ -32,7 +31,7 @@ function db_select_sqli(){
     
 }
 
-add_shortcode('result-query', 'db_select_sqli');
+//add_shortcode('result-query', 'db_select_sqli');
 
 ?>
 
